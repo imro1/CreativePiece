@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Degradation Awareness</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <header>
+        <h1>Our Beautiful Planet</h1>
+        <p>Explore the impact of environmental degradation.</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#action">Take Action</a></li>
+        </ul>
+    </nav>
+    <section id="home" class="container">
+        <div class="image-container">
+            <img src="pristine.png" alt="Pristine Environment" class="image image-pristine">
+            <img src="degraded.png" alt="Degraded Environment" class="image image-degraded">
+        </div>
+        <div class="slider-container">
+            <input type="range" min="1" max="100" value="50" class="slider-range" id="sliderRange">
+        </div>
+    </section>
+    <section id="grotesque-carousel" class="content-section">
+        <h2>Grotesque Effects of Environmental Degradation</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="grotesque1.jpg" alt="Grotesque Image 1"></div>
+                <div class="swiper-slide"><img src="grotesque2.jpg" alt="Grotesque Image 2"></div>
+                <div class="swiper-slide"><img src="grotesque3.jpg" alt="Grotesque Image 3"></div>
+                <!-- Add more slides as needed -->
+            </div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
+    </section>
+    <section id="impact" class="content-section">
+        <h2>The Impact of Environmental Degradation</h2>
+        <p>Learn about the effects of pollution, deforestation, and climate change on our environment.</p>
+    </section>
+    <section id="action" class="content-section">
+        <h2>Take Action</h2>
+        <p>Find out how you can make a difference in protecting our planet.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Environmental Awareness Initiative</p>
+    </footer>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    #grotesque-carousel .swiper-pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-degraded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    clip-path: inset(0 50% 0 0); /* Initially clip to half */
+}
+
+.slider-container {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.slider-range {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #4CAF50;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.slider-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.content-section {
+    padding: 20px;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#grotesque-carousel .swiper-container {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+}
+
+#grotesque-carousel .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('sliderRange');
+    const degradedImage = document.querySelector('.image-degraded');
+
+    slider.addEventListener('input', function() {
+        const sliderValue = this.value;
+        degradedImage.style.clipPath = `inset(0 ${100 - sliderValue}% 0 0)`;
+    });
+
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
+
+</script>
